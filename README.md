@@ -19,10 +19,14 @@ aws cloudformation deploy \
 --parameter-overrides BucketName=<ACCESS-LOGS-BUCKET>
 ```
 
-Once the stack has spun up, open up the Athena query editor and run:
+Once the stack has spun up, open up the Athena query editor and specify the results folder as
+`<ACCESS-LOGS-BUCKET/query-results`.
+
+Next you'll run the command:
 ```
 MSCK REPAIR TABLE partitioned_gz;
 ```
+This will update the table's metadata to include your partitions in s3.
 You only have to run this the first time, as the created lambda (CreatePartFn)
 will incrementally create hourly partitions for you.
 
