@@ -20,7 +20,7 @@ aws cloudformation deploy \
 ```
 
 Once the stack has spun up, open up the Athena query editor and specify the results folder as
-`<ACCESS-LOGS-BUCKET/query-results`.
+`<ACCESS-LOGS-BUCKET>/query-results`.
 
 Next you'll run the command:
 ```
